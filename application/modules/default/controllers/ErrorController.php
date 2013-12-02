@@ -1,6 +1,6 @@
 <?php
 
-class ErrorController extends Ws_Controller_Action_Base
+class ErrorController extends Bc_Controller_Action_Base
 {
 
     public function errorAction()
@@ -33,7 +33,7 @@ class ErrorController extends Ws_Controller_Action_Base
             $this->view->exception = $errors->exception;
         }
                 
-        Ws_Log::getInstance()->error($errors->exception->getMessage()."\n".$errors->exception->getTraceAsString());
+        Bc_Log::getInstance()->error($errors->exception->getMessage()."\n".$errors->exception->getTraceAsString());
 
         $this->view->request   = $errors->request;
     }

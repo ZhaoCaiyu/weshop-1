@@ -1,10 +1,10 @@
 <?php
 date_default_timezone_set('Asia/Shanghai');
 
-define('LJA_ONE_DAY', 86400);
-define('LJA_START_TIME', microtime());
-define('LJA_FORCE_RELOAD_CONFIG', getenv('LJA_FORCE_RELOAD_CONFIG') ? (bool)getenv('LJA_FORCE_RELOAD_CONFIG') : false);
-define('LJA_LOCAL_CACHER', getenv('LJA_LOCAL_CACHER') ? getenv('LJA_LOCAL_CACHER') : 'apc');
+define('BC_ONE_DAY', 86400);
+define('BC_START_TIME', microtime());
+define('BC_FORCE_RELOAD_CONFIG', getenv('BC_FORCE_RELOAD_CONFIG') ? (bool)getenv('BC_FORCE_RELOAD_CONFIG') : false);
+define('BC_LOCAL_CACHER', getenv('BC_LOCAL_CACHER') ? getenv('BC_LOCAL_CACHER') : 'apc');
 
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
@@ -20,12 +20,12 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path(),
 )));
 
-require_once 'Ws' . DIRECTORY_SEPARATOR . 'Loader.php';
-Ws_Loader::getInstance()->register();
+require_once 'Bc' . DIRECTORY_SEPARATOR . 'Loader.php';
+Bc_Loader::getInstance()->register();
 
-Ws_Timer::start('application');
+Bc_Timer::start('application');
 
-$config = &Ws_Config::getInstance();
+$config = &Bc_Config::getInstance();
 
-$application = new Ws_Application(APPLICATION_ENV, $config);
+$application = new Bc_Application(APPLICATION_ENV, $config);
 $application->bootstrap()->run();

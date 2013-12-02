@@ -1,6 +1,6 @@
 <?php
 
-class Api_MessageController extends Ws_Controller_Action_Api {
+class Api_MessageController extends Bc_Controller_Action_Api {
 
 	public function indexAction() {
 		if ($this->validateSign()) {
@@ -25,14 +25,14 @@ class Api_MessageController extends Ws_Controller_Action_Api {
 		$timestamp = $this->getRequest()->getParam('timestamp', '');	//	时间戳
 		$nonce = $this->getRequest()->getParam('nonce', '');			//	随机数
 
-		$sign = Ws_Weixin::sign($timestamp, $nonce);
+		$sign = Bc_Weixin::sign($timestamp, $nonce);
 
 		return $sign==$signature;
 	}
 
 	protected function processMessage() {
 		$xml = $this->getRequest()->getRawBody();
-		Ws_Log::i()->receive($xml);
+		Bc_Log::i()->receive($xml);
 
 		try {
 			$data = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
@@ -43,12 +43,12 @@ class Api_MessageController extends Ws_Controller_Action_Api {
 				case 'location':		//	地理位置消息
 				case 'event':			//	事件消息
 				case 'link':			//	链接消息
-					$handler = &Ws_Weixin_Message_Handler::factory($data);
+					$handler = &Bc_Weixin_Message_Handler::factory($data);
 					$handler->process();
 					break;				
 			}
 		} catch (Exception $e) {
-			Ws_Log::i()->exception($e);
+			Bc_Log::i()->exception($e);
 
 			die("OK");
 		}
@@ -60,7 +60,7 @@ class Api_MessageController extends Ws_Controller_Action_Api {
 		$nonce = $this->getRequest()->getParam('nonce', '');			//	随机数
 		$echostr = $this->getRequest()->getParam('echostr', '');		//	随机字符串
 
-		$sign = Ws_Weixin::sign($timestamp, $nonce);
+		$sign = Bc_Weixin::sign($timestamp, $nonce);
 
 		return $sign==$signature;
 	}
