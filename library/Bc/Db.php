@@ -7,7 +7,9 @@ class Bc_Db {
 	public static function &t($table) {
 		if (!isset(self::$tables[$table])) {
 			$class = 'Bc_Db_Table_'.ucfirst(strtolower($table));
-			self::$tables[$table] = new $class;
+
+			self::$tables[$table] = new $class();
+			self::$tables[$table]->init();
 		}
 
 		return self::$tables[$table];

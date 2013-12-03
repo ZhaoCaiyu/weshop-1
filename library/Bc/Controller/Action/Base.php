@@ -25,9 +25,8 @@ class Bc_Controller_Action_Base extends Zend_Controller_Action {
 		$this->MODULE = $this->view->MODULE = $this->_request->getModuleName();
 	}
 
-	protected function M($m='') {
-		$className = 'Bc_Db_Table_'.ucfirst( $m ? $m : $this->_request->getControllerName () );
-		return new $className ();
+	protected function &M($m='') {
+		return Bc_Db::t($m ? $m : $this->_request->getControllerName());
 	}
 	
 }

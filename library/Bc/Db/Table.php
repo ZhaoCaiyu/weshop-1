@@ -1,6 +1,26 @@
 <?php
 
-class Bc_Db_Table extends Zend_Db_Table {
+abstract class Bc_Db_Table extends Zend_Db_Table {
+	
+	public function __call($method, $params) {
+		$data = false;
+		
+		if (preg_match('/^([a-zA-Z0-9_]+)$/is', $method)) {
+			$db = &$this->getAdapter();
+			$where = $db->quoteInto('`'.$method.'`=?', $params[0]);
+			
+			$data = $this->fetchRow($where, null);
+		}
+		
+		return $data;
+	}
+	
+	public function __construct() {
+		$prefix = Bc_Config::getInstance()->resources->db->params->tbl_prefix;		
+		$this->_name = $prefix.strtolower(str_replace('Bc_Db_Table_', '', get_class($this)));		
+
+		parent::__construct();
+	}
 
 	public function findById($id) {
 		$db = &$this->getAdapter();

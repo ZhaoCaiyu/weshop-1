@@ -22,7 +22,7 @@ class Bc_Controller_Action_Panel extends Bc_Controller_Action_Base {
 
 	protected function nLogin() {
 		if (!$this->auth()) {
-			header('Location: '.$this->MODULE.'/login');
+			$this->_helper->getHelper('Redirector')->gotoSimple('', 'login', $this->MODULE);
 		}
 	}
 }
