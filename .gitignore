@@ -4,3 +4,6 @@ README.txt
 demos/
 extras/documentation
 logs/
+.buildpath
+.project
+org.eclipse.*
