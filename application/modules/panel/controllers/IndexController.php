@@ -6,9 +6,7 @@ class Panel_IndexController extends Bc_Controller_Action_Panel {
 		parent::init();
 
 		$this->nLogin();
-	}
-
-	public function indexAction() {
 		
+		$this->_helper->getHelper('Redirector')->setCode(301)->setExit(true)->gotoSimple('', 'welcome', $this->MODULE);
 	}
 }

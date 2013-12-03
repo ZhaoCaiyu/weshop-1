@@ -43,8 +43,8 @@ class Bc_Config
 	public static function &appConfig()
 	{
 		self::getInstance();
-		$lja = self::$config->lja;
-		return $lja;
+		$bc = self::$config->bc;
+		return $bc;
 	}
 	
 }

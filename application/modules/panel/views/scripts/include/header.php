@@ -1,7 +1,8 @@
+<?php Bc_Output::prepareHtml();?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WeSHOP - Ver 0.1 Beta</title>
+    <title><?php echo Bc_Config::appConfig()->app_name;?> - Ver 0.1 Beta</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Bigcapital.co" />

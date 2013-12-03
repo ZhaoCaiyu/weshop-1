@@ -14,4 +14,5 @@
     </div> <!-- /container -->
 
    <hr />
+
 <?php include dirname(__FILE__).'/../include/footer.php'; ?>

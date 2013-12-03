@@ -30,4 +30,9 @@ class Panel_LoginController extends Bc_Controller_Action_Panel {
 			}
 		}
 	}
+	
+	public function logoutAction() {
+		$this->uid = 0;
+		$this->sess->set('uid');
+	}
 }
