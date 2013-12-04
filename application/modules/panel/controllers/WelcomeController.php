@@ -8,7 +8,7 @@ class Panel_WelcomeController extends Bc_Controller_Action_Panel {
 
 		$this->nLogin();
 		
-		$this->menu = require(APPLICATION_PATH.'/configs/menu.php');
+		$this->menu = &Bc_Config::menu($this->view);
 	}
 
 	public function indexAction() {

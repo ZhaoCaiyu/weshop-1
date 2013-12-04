@@ -4,8 +4,9 @@ Bc_Output::prepareHtml();
 <ul class='nav'>
 <?php 
 $live = 999;
+
 foreach ($this->menu['index'] as $menu) {
-	if ($menu[2]<=$live) {
+	if ((int)$menu[2]<=$live) {
 ?>
 <li><a class='btn' href='javascript:void(0);' onclick="changepage('<?php echo $this->url(array(
 	'action' => 'menu',

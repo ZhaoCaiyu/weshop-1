@@ -10,7 +10,7 @@ require_once 'Bc/Cache/Local.php';
 class Bc_Config
 {
 	protected static $config = null;
-	protected static $cityConfig = array();
+	protected static $menu = array();
 	
 	private function __construct()
 	{
@@ -47,4 +47,11 @@ class Bc_Config
 		return $bc;
 	}
 	
+	public static function &menu(&$view) {
+		if (count(self::$menu)==0) {
+			self::$menu = require(APPLICATION_PATH.'/configs/menu.php');
+		}
+		
+		return self::$menu;
+	}
 }

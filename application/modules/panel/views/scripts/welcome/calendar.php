@@ -1,3 +1,4 @@
+<?php echo $this->Breadcrumb(0, 'main', 0);?>
 <div id="celender" class="span6"></div>
 <script src='lib/jquery/plug/jquery-ui.custom.min.js' type="text/javascript" charset="utf-8"></script>
 <script src='lib/fullcalendar/fullcalendar.min.js'></script>  <!-- 载入日历记事本 -->
