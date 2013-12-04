@@ -42,4 +42,8 @@ abstract class Bc_Db_Table extends Zend_Db_Table {
 
 		return $this->delete($where);
 	}
+	
+	public function count($where='') {
+		return $this->getAdapter()->fetchOne('SELECT COUNT(*) AS `count` FROM `'.$this->_name.'` '.($where ? 'WHERE '.$where : ''));
+	}
 }

@@ -6,7 +6,7 @@ Bc_Output::prepareHtml();
 $live = 999;
 
 foreach ($this->menu['index'] as $menu) {
-	if ((int)$menu[2]<=$live) {
+	if ((int)$menu[2]<=$this->user['status']) {
 ?>
 <li><a class='btn' href='javascript:void(0);' onclick="changepage('<?php echo $this->url(array(
 	'action' => 'menu',

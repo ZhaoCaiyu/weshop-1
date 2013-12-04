@@ -28,5 +28,4 @@ class Bc_Controller_Action_Base extends Zend_Controller_Action {
 	protected function &M($m='') {
 		return Bc_Db::t($m ? $m : $this->_request->getControllerName());
 	}
-	
 }
