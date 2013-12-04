@@ -21,7 +21,7 @@ foreach ($this->menu['index'] as $menu) {
         <div class="pull-right">
             <ul class="nav pull-right">
                 <li><a class="btn" href="javascript:void(0);" onclick="changepage('欢迎面板','WeCMS');"><i class="icon-calendar"></i> </a></li>
-                <li class="dropdown"><a href="#" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> 欢迎：$user<b class="caret"></b></a>
+                <li class="dropdown"><a href="#" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> 欢迎：<?php echo $this->user['nickname'] ? $this->user['nickname'] : $this->user['account'];?><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="javascript:void(0);" onclick="edituser('aaa','WeCMS');"><i class="icon-pencil"></i> 编辑用户</a></li>
                         <li class="divider"></li>

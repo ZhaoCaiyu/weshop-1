@@ -23,6 +23,7 @@ class Panel_LoginController extends Bc_Controller_Action_Panel {
 					$this->view->error = '用户名密码不正确';
 				} else {
 					$this->uid = (int)$row->id;
+					$this->view->user = $this->user = $row->toArray();
 					$this->sess->set('uid', $this->uid);
 					
 					$this->_helper->getHelper('Redirector')->setCode(301)->setExit(true)->gotoSimple('', 'index', $this->MODULE);
